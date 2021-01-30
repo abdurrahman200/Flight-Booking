@@ -49,23 +49,23 @@
             </div>
             <div class="input-group f-class">
                 <div>
-                    <label for="">First Class( <span id="first-price"> $150</span> )</label>
+                    <label for="">first Class( <span id="first-price"> $150</span> )</label>
                     <input id="first-count" class="inp-style inp-width" type="number" name="">
                 </div>
                 <div class="plus-minus-btn">
-                    <p> <span onclick="ticketHandler('first',true)">+</span> <span
-                            onclick="ticketHandler('first',false)">-</span>
+                    <p> <span onclick="ticketHandler('first',true)"> + </span> <span
+                            onclick="ticketHandler('first',false)"> - </span>
                     </p>
                 </div>
             </div>
             <div class="input-group f-class">
                 <div>
-                    <label for="">Economy ( <span id="economy-price"> $100</span> )</label>
+                    <label for="">economy ( <span id="economy-price"> $100</span> )</label>
                     <input id="economy-count" class="inp-style inp-width" type="number" name="">
                 </div>
                 <div class="plus-minus-btn">
-                    <p> <span onclick="ticketHandler('economy',true)">+</span> <span
-                            onclick="ticketHandler('economy',false)">-</span>
+                    <p> <span onclick="ticketHandler('economy',true)"> + </span> <span
+                            onclick="ticketHandler('economy',false)"> - </span>
                     </p>
                 </div>
             </div>
@@ -83,7 +83,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p id="charge">$50</p>
+                        <p id="charge-amount">$50</p>
                     </div>
                 </div>
                 <hr>
@@ -107,47 +107,92 @@
         </section>
         <!--Thank You-->
         <script>
+
             function ticketHandler(ticket, isPlus) {
-                const ticketInput = document.getElementById(ticket + '-count');
-                const ticketAmount = parseFloat(Number(ticketInput.value));
-                let ticketNewAmount = ticketAmount;
-                if (isPlus == true && ticketAmount < 10) {
-                    ticketNewAmount = ticketAmount + 1;
+
+                const ticketCount = getValue(ticket);
+
+                let ticketNewCount = ticketCount;
+
+                if (isPlus == true) {
+                    ticketNewCount = ticketCount + 1;
                 }
-                if (isPlus == false && ticketAmount > 0) {
-                    ticketNewAmount = ticketAmount - 1;
+                if (isPlus == false && ticketCount > 0) {
+                    ticketNewCount = ticketCount - 1;
                 }
-              
                 let ticketTotal = 0;
                 if (ticket == 'first') {
-                    ticketTotal = ticketNewAmount * 150;
+                    ticketTotal = ticketNewCount * 150;
                 }
                 if (ticket == 'economy') {
-                    ticketTotal = ticketNewAmount * 100;
+                    ticketTotal = ticketNewCount * 100;
+                }
+                document.getElementById(ticket + '-price').innerText = '$' + ticketTotal;
+                calculateTotal();
+            }
+
+            function ticketHandler(ticket, isPlus) {
+                const ticketCount = getValue(ticket);
+                let ticketNewCount = ticketCount;
+                if (isPlus == true) {
+                    ticketNewCount = ticketCount + 1;
+                }
+                if (isPlus == false && ticketCount > 0) {
+                    ticketNewCount = ticketCount - 1;
+                }
+                let ticketTotal = 0;
+                if (ticket == 'first') {
+                    ticketTotal = ticketNewCount * 150;
+                }
+                if (ticket == 'economy') {
+                    ticketTotal = ticketNewCount * 100;
                 }
                 document.getElementById(ticket + '-price').innerText = '$' + ticketTotal;
                 calculateTotal();
             }
 
             function calculateTotal() {
-                const firstAmount = getSubtotalValue('first');
-                const economyAmount = getSubtotalValue('economy');
 
-                const subtotal = firstAmount * 150 + economyAmount * 100;
-                document.getElementById('sub-total').innerText = '$' + subtotal;
+                const firstCount = getValue('first');
+                const economyCount = getValue('economy');
 
-                const charge = subtotal * 0.1;
-                document.getElementById('charge').innerText = '$' + charge;
+                const totalPrice = firstCount * 150 + economyCount * 100;
+                document.getElementById('sub-total').innerText = '$' + totalPrice;
 
-                const totals = subtotal + charge;
-                document.getElementById('totals').innerText = '$' + totals;
+                const charge = Math.round(totalPrice * 0.1);
+                document.getElementById('charge-amount').innerText = '$' + charge;
+
+                const grandTotal = totalPrice + charge;
+                document.getElementById('totals').innerText = '$' + grandTotal;
             }
-            
-            function getSubtotalValue(ticket) {
-                const ticketInput = document.getElementById(ticket + '-count');
-                const ticketAmount = parseFloat(Number(ticketInput.value));
-                return ticketAmount;
+
+            function getValue(ticket) {
+                const ticketInput = document.getElementById(ticket + '-count').value;
+                const ticketCount = parseFloat(ticketInput);
+                return ticketCount;
             }
+
+
+
+
+             // document.getElementById('first-class').addEventListener('click', function() {
+            //     const firstInput = document.getElementById('first-count');
+            //     const firstCount = parseInt(firstInput.value);
+            //     const firstNewCount = firstCount + 1;
+            //     firstInput.value = firstNewCount;
+            //     const firstTotal = firstNewCount * 150;
+            //     document.getElementById('first-total').innerText = '$' + firstTotal;
+            // });
+
+            // document.getElementById('first-class').addEventListener('click', function() {
+            //     const firstInput = document.getElementById('first-count');
+            //     const firstCount = parseInt(firstInput.value);
+            //     const firstNewCount = firstCount - 1;
+            //     firstInput.value = firstNewCount;
+            //     const firstTotal = firstNewCount * 100;
+            //     document.getElementById('first-total').innerText = '$' + firstTotal;
+            // });
+
 
 
 
