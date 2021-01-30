@@ -36,14 +36,11 @@ function getInputValue(ticket) {
     return ticketCount;
 }
 
-
-
 // Click Button to show
 document.getElementById('button').addEventListener('click', function () {
     document.getElementById('remove').style.display = 'none';
     document.getElementById('show').style.display = 'block';
 
-    buttonHandler()
 })
 
 function buttonHandler(){
@@ -53,7 +50,7 @@ function buttonHandler(){
 
     const flyingToInput = document.getElementById('flyingto').value;
     document.getElementById('user-flying-to').innerText = flyingToInput;
-
+    
     const departureInput = document.getElementById('departure').value;
     document.getElementById('user-departure-date').innerText = departureInput;
 
