@@ -35,23 +35,27 @@ function getInputValue(ticket) {
     const ticketCount = Number(ticketInput.value);
     return ticketCount;
 }
-
 // Click Button to show
 
 document.getElementById('button').addEventListener('click', function () {
     document.getElementById('remove').style.display = 'none';
-    document.getElementById('show').style.display = 'block';
-
+    if (!flightFromInput || !flyingToInput ) {
+        alert('Please Enter Value')
+    }
+    else {
+        document.getElementById('show').style.display = 'block';
+        buttonHandler();
+    }
 })
 
-function buttonHandler(){
+function buttonHandler(isSet) {
 
     const flightFromInput = document.getElementById('flightfrom').value;
     document.getElementById('user-flying-from').innerText = flightFromInput;
 
     const flyingToInput = document.getElementById('flyingto').value;
     document.getElementById('user-flying-to').innerText = flyingToInput;
-    
+
     const departureInput = document.getElementById('departure').value;
     document.getElementById('user-departure-date').innerText = departureInput;
 
