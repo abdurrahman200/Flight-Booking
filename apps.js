@@ -39,13 +39,8 @@ function getInputValue(ticket) {
 
 document.getElementById('button').addEventListener('click', function () {
     document.getElementById('remove').style.display = 'none';
-    if (!flightFromInput || !flyingToInput ) {
-        alert('Please Enter Value')
-    }
-    else {
-        document.getElementById('show').style.display = 'block';
-        buttonHandler();
-    }
+    document.getElementById('show').style.display = 'block';
+
 })
 
 function buttonHandler(isSet) {
