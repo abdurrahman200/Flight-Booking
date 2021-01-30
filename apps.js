@@ -1,4 +1,5 @@
 'use strict'
+
 // Ticket calculation
 function ticketHandler(ticket, isPlus) {
     const ticketCount = getInputValue(ticket);
@@ -37,11 +38,11 @@ function getInputValue(ticket) {
 }
 // Click Button to show
 
-// document.getElementById('button').addEventListener('click', function () {
-//     document.getElementById('remove').style.display = 'none';
-//     document.getElementById('show').style.display = 'block';
+document.getElementById('button').addEventListener('click', function () {
+    document.getElementById('remove').style.display = 'none';
+    document.getElementById('show').style.display = 'block';
 
-// })
+})
 
 // function buttonHandler(isSet) {
 
