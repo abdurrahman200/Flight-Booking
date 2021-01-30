@@ -9,7 +9,7 @@
 }
 body{
     font-family: 'Rajdhani', sans-serif !important;
-    background:url("images/bg.png");
+    background:url("images/bg.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: scroll;
@@ -39,7 +39,7 @@ nav ul li a{
 }
 nav ul li a:hover, a.active{
     background-color: #3352F2;
-    border-radius: 5px;
+    border-radius: 2px;
 }
 .main-content{
     display: grid;
@@ -86,11 +86,10 @@ nav ul li a:hover, a.active{
 .booking-form input{
     width: 100%;
     display: block;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 8px;
+    border-radius: 1px;
     border: none;
-    background: #f3feff;
-    border-radius: 2px;
+    background: #ffe4e4;
     margin: 5px 0;
 }
 .booking-form .inputs{
@@ -99,13 +98,14 @@ nav ul li a:hover, a.active{
     gap: 10px;
 }
 .booking-content{
-    color: #fff;
+    color: rgb(3, 72, 94);
     width: 80%;
 }
 .booking-content h1{
     font-size: 70px;
     text-transform: uppercase;
     font-family: 'Bebas Neue', cursive;
+    text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
     font-weight: 400;
     margin-bottom: 25px;
 }
@@ -114,11 +114,11 @@ nav ul li a:hover, a.active{
     display: block;
     width: 100%;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 2px;
     border: none;
     color: #fff;
     font-weight: 500;
-    background-color:  #036164;
+    background-color:  #02999e;
 }
 .amount{
     display: flex;
