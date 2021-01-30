@@ -151,14 +151,12 @@ table {
 .table th {
     padding: 0.55rem;
     vertical-align: top;
+    font-weight: 600;
 }
 
 .twopx td {
     vertical-align: top;
     border-top: 1px solid #dee2e6;
-}
-.strong {
-    font-weight: 600;
 }
 
 .booking-details header {

@@ -50,7 +50,7 @@ function buttonHandler(){
 
     const flightFromInput = document.getElementById('flightfrom').value;
     document.getElementById('user-flying-from').innerText = flightFromInput;
-    
+
     const flyingToInput = document.getElementById('flyingto').value;
     document.getElementById('user-flying-to').innerText = flyingToInput;
 
