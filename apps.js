@@ -37,26 +37,26 @@ function getInputValue(ticket) {
 }
 // Click Button to show
 
-document.getElementById('button').addEventListener('click', function () {
-    document.getElementById('remove').style.display = 'none';
-    document.getElementById('show').style.display = 'block';
+// document.getElementById('button').addEventListener('click', function () {
+//     document.getElementById('remove').style.display = 'none';
+//     document.getElementById('show').style.display = 'block';
 
-})
+// })
 
-function buttonHandler(isSet) {
+// function buttonHandler(isSet) {
 
-    const flightFromInput = document.getElementById('flightfrom').value;
-    document.getElementById('user-flying-from').innerText = flightFromInput;
+//     const flightFromInput = document.getElementById('flightfrom').value;
+//     document.getElementById('user-flying-from').innerText = flightFromInput;
 
-    const flyingToInput = document.getElementById('flyingto').value;
-    document.getElementById('user-flying-to').innerText = flyingToInput;
+//     const flyingToInput = document.getElementById('flyingto').value;
+//     document.getElementById('user-flying-to').innerText = flyingToInput;
 
-    const departureInput = document.getElementById('departure').value;
-    document.getElementById('user-departure-date').innerText = departureInput;
+//     const departureInput = document.getElementById('departure').value;
+//     document.getElementById('user-departure-date').innerText = departureInput;
 
-    const returnInput = document.getElementById('return').value;
-    document.getElementById('user-return-date').innerText = returnInput;
-}
+//     const returnInput = document.getElementById('return').value;
+//     document.getElementById('user-return-date').innerText = returnInput;
+// }
 
 
 
