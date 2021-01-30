@@ -32,20 +32,20 @@
                 <h3>Booking Flights</h3>
                 <div class="input-group">
                     <label for="">Flying From</label>
-                    <input class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
+                    <input id="flightfrom" class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
                 </div>
                 <div class="input-group">
                     <label for="">Flying To</label>
-                    <input class="inp-style" type="text" name="" placeholder="New York, United States">
+                    <input id="flyingto" class="inp-style" type="text" name="" placeholder="New York, United States">
                 </div>
                 <div class="inputs">
                     <div class="input-group">
                         <label" for="">Departure</label>
-                            <input class="inp-style" type="date" name="">
+                            <input id="departure" class="inp-style" type="date" name="">
                     </div>
                     <div class="input-group">
                         <label for="">Return</label>
-                        <input class="inp-style" type="date" name="">
+                        <input id="return" class="inp-style" type="date" name="">
                     </div>
                 </div>
                 <div class="input-group f-class">
@@ -109,39 +109,39 @@
                     <tbody>
                         <tr>
                             <td class="strong">Flying From</td>
-                            <td class="user-flying-from">d</td>
+                            <td id="user-flying-from"></td>
                         </tr>
                         <tr>
                             <td class="strong">Flying To</td>
-                            <td class="user-flying-to"></td>
+                            <td id="user-flying-to"></td>
                         </tr>
                         <tr>
                             <td class="strong">Departure</td>
-                            <td class="user-departure-date"></td>
+                            <td id="user-departure-date"></td>
                         </tr>
                         <tr>
                             <td class="strong">Return</td>
-                            <td class="user-return-date"></td>
+                            <td id="user-return-date"></td>
                         </tr>
                         <tr>
                             <td class="strong">First Class</td>
-                            <td class="user-first-class"></td>
+                            <td id="user-first-class"></td>
                         </tr>
                         <tr>
                             <td class="strong">Economy</td>
-                            <td class="user-economy-class"></td>
+                            <td id="user-economy-class"></td>
                         </tr>
                         <tr class="twopx">
                             <td class="strong">Subtotal</td>
-                            <td class="user-subtotal"></td>
+                            <td id="user-subtotal"></td>
                         </tr>
                         <tr>
                             <td class="strong">Vat</td>
-                            <td class="user-vat"></td>
+                            <td id="user-vat"></td>
                         </tr>
                         <tr>
                             <td class="strong">Total</td>
-                            <td class="user-total"></td>
+                            <td id="user-total"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -155,49 +155,7 @@
         </div>
         </section>
         <!--Thank You-->
-        <script>
-            // Ticket calculation
-            function ticketHandler(ticket, isPlus) {
-                const ticketCount = getInputValue(ticket);
-                let ticketNewCount = ticketCount;
-                if (isPlus == true && ticketCount < 10) {
-                    ticketNewCount = ticketCount + 1;
-                }
-                if (isPlus == false && ticketCount > 0) {
-                    ticketNewCount = ticketCount - 1;
-                }
-                document.getElementById(ticket + '-count').value = ticketNewCount;
-                let ticketTotal = 0;
-                if (ticket == 'first') {
-                    ticketTotal = ticketNewCount * 150;
-                }
-                if (ticket == 'economy') {
-                    ticketTotal = ticketNewCount * 100;
-                }
-                document.getElementById(ticket + '-price').innerText = '$' + ticketTotal;
-                calculateTotal();
-            }
-            function calculateTotal() {
-                const firstCount = getInputValue('first');
-                const economyCount = getInputValue('economy');
-                const subtotal = firstCount * 150 + economyCount * 100;
-                document.getElementById('sub-total').innerText = '$' + subtotal;
-                const charge = Math.round(subtotal * 0.1);
-                document.getElementById('charge-amount').innerText = '$' + charge;
-                const totals = subtotal + charge;
-                document.getElementById('totals').innerText = '$' + totals;
-            }
-            function getInputValue(ticket) {
-                const ticketInput = document.getElementById(ticket + '-count');
-                const ticketCount = Number(ticketInput.value);
-                return ticketCount;
-            }
-            // Click Button to show
-            document.getElementById('button').addEventListener('click', function () {
-                document.getElementById('remove').style.display = 'none';
-                document.getElementById('show').style.display = 'block';
-            })
-        </script>
+        <script src="apps.js"> </script>
 </body>
 
 </html>
