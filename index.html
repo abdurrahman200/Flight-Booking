@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +7,10 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap"
-        rel="stylesheet">
+    rel="stylesheet">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <!--Header and Menu Section-->
     <header class="container">
@@ -40,7 +38,7 @@
             <div class="inputs">
                 <div class="input-group">
                     <label" for="">Departure</label>
-                        <input class="inp-style" type="date" name="">
+                    <input class="inp-style" type="date" name="">
                 </div>
                 <div class="input-group">
                     <label for="">Return</label>
@@ -54,7 +52,7 @@
                 </div>
                 <div class="plus-minus-btn">
                     <p> <span onclick="ticketHandler('first',true)"> + </span> <span
-                            onclick="ticketHandler('first',false)"> - </span>
+                        onclick="ticketHandler('first',false)"> - </span>
                     </p>
                 </div>
             </div>
@@ -65,7 +63,7 @@
                 </div>
                 <div class="plus-minus-btn">
                     <p> <span onclick="ticketHandler('economy',true)"> + </span> <span
-                            onclick="ticketHandler('economy',false)"> - </span>
+                        onclick="ticketHandler('economy',false)"> - </span>
                     </p>
                 </div>
             </div>
@@ -102,76 +100,46 @@
             <h1>discover <br> around the world</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias
                 veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise
-                voluptatibus quam</p>
+            voluptatibus quam</p>
         </div>
-        </section>
-        <!--Thank You-->
-        <script>
-
-            function ticketHandler(ticket, isPlus) {
-                const ticketCount = getInputValue(ticket);
-                let ticketNewCount = ticketCount;
-                if (isPlus == true && ticketCount < 5) {
-                    ticketNewCount = ticketCount + 1;
-                }
-                if (isPlus == false && ticketCount > 0) {
-                    ticketNewCount = ticketCount - 1;
-                }
-                document.getElementById(ticket + '-count').value = ticketNewCount;
-                let ticketTotal = 0;
-                if (ticket == 'first') {
-                    ticketTotal = ticketNewCount * 150;
-                }
-                if (ticket == 'economy') {
-                    ticketTotal = ticketNewCount * 100;
-                }
-                document.getElementById(ticket + '-price').innerText = '$' + ticketTotal;
-                calculateTotal();
+    </section>
+    <!--Thank You-->
+    <script>
+        function ticketHandler(ticket, isPlus) {
+            const ticketCount = getInputValue(ticket);
+            let ticketNewCount = ticketCount;
+            if (isPlus == true && ticketCount < 10) {
+                ticketNewCount = ticketCount + 1;
             }
-
-            function calculateTotal() {
-                const firstCount = getInputValue('first');
-                const economyCount = getInputValue('economy');
-
-                const subtotal = firstCount * 150 + economyCount * 100;
-                document.getElementById('sub-total').innerText = '$' + subtotal;
-
-                const charge = Math.round(subtotal * 0.1);
-                document.getElementById('charge-amount').innerText = '$' + charge;
-
-                const totals = subtotal + charge;
-                document.getElementById('totals').innerText = '$' + totals;
+            if (isPlus == false && ticketCount > 0) {
+                ticketNewCount = ticketCount - 1;
             }
-            function getInputValue(ticket) {
-                const ticketInput = document.getElementById(ticket + '-count');
-                const ticketCount = Number(ticketInput.value);
-                return ticketCount;
+            document.getElementById(ticket + '-count').value = ticketNewCount;
+            let ticketTotal = 0;
+            if (ticket == 'first') {
+                ticketTotal = ticketNewCount * 150;
             }
-
-
-
-             // document.getElementById('first-class').addEventListener('click', function() {
-            //     const firstInput = document.getElementById('first-count');
-            //     const firstCount = parseInt(firstInput.value);
-            //     const firstNewCount = firstCount + 1;
-            //     firstInput.value = firstNewCount;
-            //     const firstTotal = firstNewCount * 150;
-            //     document.getElementById('first-total').innerText = '$' + firstTotal;
-            // });
-
-            // document.getElementById('first-class').addEventListener('click', function() {
-            //     const firstInput = document.getElementById('first-count');
-            //     const firstCount = parseInt(firstInput.value);
-            //     const firstNewCount = firstCount - 1;
-            //     firstInput.value = firstNewCount;
-            //     const firstTotal = firstNewCount * 100;
-            //     document.getElementById('first-total').innerText = '$' + firstTotal;
-            // });
-
-
-
-
-        </script>
+            if (ticket == 'economy') {
+                ticketTotal = ticketNewCount * 100;
+            }
+            document.getElementById(ticket + '-price').innerText = '$' + ticketTotal;
+            calculateTotal();
+        }
+        function calculateTotal() {
+            const firstCount = getInputValue('first');
+            const economyCount = getInputValue('economy');
+            const subtotal = firstCount * 150 + economyCount * 100;
+            document.getElementById('sub-total').innerText = '$' + subtotal;
+            const charge = Math.round(subtotal * 0.1);
+            document.getElementById('charge-amount').innerText = '$' + charge;
+            const totals = subtotal + charge;
+            document.getElementById('totals').innerText = '$' + totals;
+        }
+        function getInputValue(ticket) {
+            const ticketInput = document.getElementById(ticket + '-count');
+            const ticketCount = Number(ticketInput.value);
+            return ticketCount;
+        }
+    </script>
 </body>
-
 </html>
