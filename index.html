@@ -109,37 +109,15 @@
         <script>
 
             function ticketHandler(ticket, isPlus) {
-
-                const ticketCount = getValue(ticket);
-
+                const ticketCount = getInputValue(ticket);
                 let ticketNewCount = ticketCount;
-
-                if (isPlus == true) {
+                if (isPlus == true && ticketCount < 5) {
                     ticketNewCount = ticketCount + 1;
                 }
                 if (isPlus == false && ticketCount > 0) {
                     ticketNewCount = ticketCount - 1;
                 }
-                let ticketTotal = 0;
-                if (ticket == 'first') {
-                    ticketTotal = ticketNewCount * 150;
-                }
-                if (ticket == 'economy') {
-                    ticketTotal = ticketNewCount * 100;
-                }
-                document.getElementById(ticket + '-price').innerText = '$' + ticketTotal;
-                calculateTotal();
-            }
-
-            function ticketHandler(ticket, isPlus) {
-                const ticketCount = getValue(ticket);
-                let ticketNewCount = ticketCount;
-                if (isPlus == true) {
-                    ticketNewCount = ticketCount + 1;
-                }
-                if (isPlus == false && ticketCount > 0) {
-                    ticketNewCount = ticketCount - 1;
-                }
+                document.getElementById(ticket + '-count').value = ticketNewCount;
                 let ticketTotal = 0;
                 if (ticket == 'first') {
                     ticketTotal = ticketNewCount * 150;
@@ -152,26 +130,23 @@
             }
 
             function calculateTotal() {
+                const firstCount = getInputValue('first');
+                const economyCount = getInputValue('economy');
 
-                const firstCount = getValue('first');
-                const economyCount = getValue('economy');
+                const subtotal = firstCount * 150 + economyCount * 100;
+                document.getElementById('sub-total').innerText = '$' + subtotal;
 
-                const totalPrice = firstCount * 150 + economyCount * 100;
-                document.getElementById('sub-total').innerText = '$' + totalPrice;
-
-                const charge = Math.round(totalPrice * 0.1);
+                const charge = Math.round(subtotal * 0.1);
                 document.getElementById('charge-amount').innerText = '$' + charge;
 
-                const grandTotal = totalPrice + charge;
-                document.getElementById('totals').innerText = '$' + grandTotal;
+                const totals = subtotal + charge;
+                document.getElementById('totals').innerText = '$' + totals;
             }
-
-            function getValue(ticket) {
-                const ticketInput = document.getElementById(ticket + '-count').value;
-                const ticketCount = parseFloat(ticketInput);
+            function getInputValue(ticket) {
+                const ticketInput = document.getElementById(ticket + '-count');
+                const ticketCount = Number(ticketInput.value);
                 return ticketCount;
             }
-
 
 
 
