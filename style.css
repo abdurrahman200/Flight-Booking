@@ -89,7 +89,7 @@ nav ul li a:hover, a.active{
     padding: 8px;
     border-radius: 1px;
     border: none;
-    background: #ffe4e4;
+    background: rgb(255, 248, 248);
     margin: 5px 0;
 }
 .booking-form .inputs{
@@ -98,7 +98,7 @@ nav ul li a:hover, a.active{
     gap: 10px;
 }
 .booking-content{
-    color: rgb(225, 244, 250);
+    color: rgb(214, 243, 252);
     width: 80%;
 }
 .booking-content h1{

@@ -37,6 +37,7 @@ function getInputValue(ticket) {
 }
 
 // Click Button to show
+
 document.getElementById('button').addEventListener('click', function () {
     document.getElementById('remove').style.display = 'none';
     document.getElementById('show').style.display = 'block';
